@@ -7,9 +7,9 @@ public class App {
 	private void performTask () {
 		System.out.println ( "String Calculator" );
 		StringCalculator stringCalculator = new StringCalculator ();
-		stringCalculator.Add ( "" );
-		stringCalculator.Add ( "1" );
-		stringCalculator.Add ( "1,2" );
+		stringCalculator.add ( "" );
+		stringCalculator.add ( "1" );
+		stringCalculator.add ( "1,2" );
 	}
 	
 	public static void main ( String [] args ) {

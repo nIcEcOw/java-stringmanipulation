@@ -6,7 +6,8 @@ package org.companyname.java.stringmanipulation;
  */
 public class StringCalculator {
 	
-	public int Add ( String numbers ) {
+	public int add ( String numbers ) {
 		System.out.println ( "Received Numbers are " + numbers );
+		return 0;
 	}
 }
