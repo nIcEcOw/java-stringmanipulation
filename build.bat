@@ -4,6 +4,11 @@ javac -d build src/org/companyname/java/stringmanipulation/StringCalculator.java
 echo "Now we will go to build folder and run our program."
 cd build
 
-java -classpath . org.companyname.java.App
+echo "We are creating JAR file here"
+jar -cfm ../stringcalculator.jar ../manifest.mf *
+
+cd ..
+# java -classpath . org.companyname.java.App
+java -jar stringcalculator.jar
 
 pause
