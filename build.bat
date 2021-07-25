@@ -8,7 +8,7 @@ echo "We are creating JAR file here"
 jar -cfm ../stringcalculator.jar ../manifest.mf *
 
 cd ..
-# java -classpath . org.companyname.java.App
+REM java -classpath . org.companyname.java.App
 java -jar stringcalculator.jar
 
 pause

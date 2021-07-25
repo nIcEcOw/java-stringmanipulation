@@ -7,7 +7,15 @@ package org.companyname.java.stringmanipulation;
 public class StringCalculator {
 	
 	public int add ( String numbers ) {
+		int result = 0;
+		if ( numbers == null || numbers.length () == 0 ) {
+			return result;
+		}
 		System.out.println ( "Received Numbers are " + numbers );
-		return 0;
+		String [] numberStrings = numbers.split ( "[,]" );
+		for ( String numberString : numberStrings ) {
+			result += Integer.parseInt ( numberString );
+		}
+		return result;
 	}
 }

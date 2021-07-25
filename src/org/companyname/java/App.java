@@ -7,9 +7,9 @@ public class App {
 	private void performTask () {
 		System.out.println ( "String Calculator" );
 		StringCalculator stringCalculator = new StringCalculator ();
-		stringCalculator.add ( "" );
-		stringCalculator.add ( "1" );
-		stringCalculator.add ( "1,2" );
+		System.out.println ( "Output when \"\" is passed: " + stringCalculator.add ( "" ) );
+		System.out.println ( "Output when \"1\" is passed: " + stringCalculator.add ( "1" ) );
+		System.out.println ( "Output when \"1,2\" is passed: " + stringCalculator.add ( "1,2" ) );
 	}
 	
 	public static void main ( String [] args ) {
