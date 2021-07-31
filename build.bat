@@ -1,7 +1,7 @@
 set MYFILE=stringcalculator.jar
 
 echo "This command will compile the source code and create package directory inside build folder.\n"
-javac -d build src/org/companyname/java/stringmanipulation/StringCalculator.java src/org/companyname/java/App.java
+javac -d build -classpath .;./build/* src/org/companyname/java/stringmanipulation/StringCalculator.java src/org/companyname/java/App.java
 
 if exist %MYFILE% del /f %MYFILE%
 
