@@ -1,12 +1,16 @@
 package org.companyname.java.stringmanipulation;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * StringCalculator holds all the logic related to the
  * manipulation of the strings as required by the task.
  */
 public class StringCalculator {
 	
-	public int add ( String numbers ) {
+	public int add ( String numbers ) throws Exception {
 		// System.out.println ( "Received number is: " + numbers );
 		int result = 0;
 		if ( numbers == null || numbers.length () == 0 ) {
@@ -48,11 +52,25 @@ public class StringCalculator {
 		
 		System.out.println ( "Delimiter choosen: " + delimiter );
 		String [] numberstrings = numbers.split ( "[" + delimiter + "]" );
-		// System.out.println ( "Found numbers: " + numberstrings.length );
-		System.out.println ( "Numbers: " + java.util.Arrays.toString ( numberstrings ) );
+		System.out.println ( "Numbers: " + Arrays.toString ( numberstrings ) );
 		for ( String numberstring : numberstrings ) {
+			int temp = Integer.parseInt ( numberstring );
+			if ( temp < 0 ) {
+				throw new Exception ( getMessageForException ( numberstrings ) );
+			}
 			result += Integer.parseInt ( numberstring );
 		}
 		return result;
+	}
+	
+	private String getMessageForException ( String [] numberstrings ) {
+		List < Integer > intList = new ArrayList ( 1 );
+		for ( String numberstring : numberstrings ) {
+			int temp = Integer.parseInt ( numberstring );
+			if ( temp < 0 ) {
+				intList.add ( new Integer ( temp ) );
+			}
+		}
+		return "Negatives not allowed " + Arrays.toString ( intList.toArray () );
 	}
 }
