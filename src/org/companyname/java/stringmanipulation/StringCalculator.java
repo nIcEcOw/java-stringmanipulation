@@ -11,10 +11,29 @@ public class StringCalculator {
 		if ( numbers == null || numbers.length () == 0 ) {
 			return result;
 		}
-		System.out.println ( "Received Numbers are " + numbers );
-		String [] numberStrings = numbers.split ( "[,]" );
-		for ( String numberString : numberStrings ) {
-			result += Integer.parseInt ( numberString );
+		String delimiter = "";
+		if ( numbers.startsWith ( "//" ) ) {
+			if ( numbers.length () < 3 ) {
+				return 0;
+			}
+			numbers = numbers.substring ( 2 );
+			int index = numbers.indexOf ( "\n" );
+			System.out.println ( "Index of separation: " + index );
+			if ( index == -1 || ( index >= ( numbers.length () - 1 ) ) ) { 
+				return 0; 
+			}
+			delimiter = numbers.substring ( 0, index );
+			numbers = numbers.substring ( index + 1 );
+			//System.out.println ( "Delimiter found: " + delimiter + " Remaining String: " + remainingstring );
+		} else {
+			delimiter = ",\\n";
+		}
+		
+		System.out.println ( "Delimiter choosen: " + delimiter );
+		String [] numberstrings = numbers.split ( "[" + delimiter + "]" );
+		//System.out.println ( "Found numbers: " + numberstrings.length );
+		for ( String numberstring : numberstrings ) {
+			result += Integer.parseInt ( numberstring );
 		}
 		return result;
 	}
